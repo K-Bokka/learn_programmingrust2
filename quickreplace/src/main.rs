@@ -10,7 +10,8 @@ struct Arguments {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let args = parse_args();
+    println!("{:?}", args);
 }
 
 fn print_usage() {
