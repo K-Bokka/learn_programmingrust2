@@ -6,8 +6,14 @@ fn show(table: &Table) {
     for (artist, works) in table {
         println!("works by {}:", artist);
         for work in works {
-            println!("    {}:", work);
+            println!("    {}", work);
         }
+    }
+}
+
+fn sort_works(table: &mut Table) {
+    for (_artist, works) in table {
+        works.sort();
     }
 }
 
@@ -17,5 +23,6 @@ fn main() {
     table.insert("Caravaggio".to_string(), vec!["The Musicians".to_string()]);
     table.insert("Suneo".to_string(), vec!["kono kuruma ha yonin nori nanda".to_string()]);
 
+    sort_works(&mut table);
     show(&table);
 }
