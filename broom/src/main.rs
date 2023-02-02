@@ -37,4 +37,9 @@ fn main() {
     assert_eq!(hokey2.name, "Hokey II");
     assert_eq!(hokey2.height, 30);
     assert_eq!(hokey2.health, 100);
+
+    match hokey1.intent {
+        BroomIntent::FetchWater => println!("Fetch!"),
+        BroomIntent::DumpWater => println!("Dump!")
+    };
 }
