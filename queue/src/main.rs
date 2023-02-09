@@ -21,6 +21,12 @@ impl Queue {
     }
 }
 
+impl Queue {
+    pub fn is_empty(&self) -> bool {
+        self.older.is_empty() && self.younger.is_empty()
+    }
+}
+
 fn main() {
     let mut q = Queue { older: Vec::new(), younger: Vec::new() };
 
@@ -33,4 +39,8 @@ fn main() {
     assert_eq!(q.shift(), Some('1'));
     assert_eq!(q.shift(), Some('∞'));
     assert_eq!(q.shift(), None);
+
+    assert!(q.is_empty());
+    q.push('Ξ');
+    assert!(!q.is_empty());
 }
