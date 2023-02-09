@@ -33,6 +33,12 @@ impl Queue {
     }
 }
 
+impl Queue {
+    fn new() -> Queue {
+        Queue { older: Vec::new(), younger: Vec::new() }
+    }
+}
+
 fn main() {
     let mut q = Queue { older: Vec::new(), younger: Vec::new() };
 
@@ -57,4 +63,8 @@ fn main() {
     let (older, younger) = q.split();
     assert_eq!(older, vec!['η']);
     assert_eq!(younger, vec!['σ']);
+
+    let mut bq = Box::new(Queue::new() );
+
+    bq.push('ι');
 }
