@@ -27,6 +27,12 @@ impl Queue {
     }
 }
 
+impl Queue {
+    pub fn split(self) -> (Vec<char>, Vec<char>) {
+        (self.older, self.younger)
+    }
+}
+
 fn main() {
     let mut q = Queue { older: Vec::new(), younger: Vec::new() };
 
@@ -43,4 +49,12 @@ fn main() {
     assert!(q.is_empty());
     q.push('Ξ');
     assert!(!q.is_empty());
+
+    q.push('η');
+    assert_eq!(q.shift(), Some('Ξ'));
+    q.push('σ');
+
+    let (older, younger) = q.split();
+    assert_eq!(older, vec!['η']);
+    assert_eq!(younger, vec!['σ']);
 }
