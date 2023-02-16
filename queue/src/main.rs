@@ -1,14 +1,14 @@
-pub struct Queue {
-    older: Vec<char>,
-    younger: Vec<char>,
+pub struct Queue<T> {
+    older: Vec<T>,
+    younger: Vec<T>,
 }
 
-impl Queue {
-    pub fn push(&mut self, c: char) {
+impl<T> Queue<T> {
+    pub fn push(&mut self, c: T) {
         self.younger.push(c);
     }
 
-    pub fn shift(&mut self) -> Option<char> {
+    pub fn shift(&mut self) -> Option<T> {
         if self.older.is_empty() {
             if self.younger.is_empty() {
                 return None;
@@ -21,21 +21,21 @@ impl Queue {
     }
 }
 
-impl Queue {
+impl<T> Queue<T> {
     pub fn is_empty(&self) -> bool {
         self.older.is_empty() && self.younger.is_empty()
     }
 }
 
-impl Queue {
-    pub fn split(self) -> (Vec<char>, Vec<char>) {
+impl<T> Queue<T> {
+    pub fn split(self) -> (Vec<T>, Vec<T>) {
         (self.older, self.younger)
     }
 }
 
-impl Queue {
-    fn new() -> Queue {
-        Queue { older: Vec::new(), younger: Vec::new() }
+impl<T> Queue<T> {
+    fn new() -> Self {
+        Self { older: Vec::new(), younger: Vec::new() }
     }
 }
 
@@ -64,7 +64,7 @@ fn main() {
     assert_eq!(older, vec!['η']);
     assert_eq!(younger, vec!['σ']);
 
-    let mut bq = Box::new(Queue::new() );
+    let mut bq = Box::new(Queue::new());
 
     bq.push('ι');
 }
