@@ -1,3 +1,5 @@
+use std::f64::consts::FRAC_PI_2;
+
 struct Polynomial<const N: usize> {
     coefficient: [f64; N],
 }
@@ -18,5 +20,8 @@ impl<const N: usize> Polynomial<N> {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let sine_poly = Polynomial::new([0.0, 1.0, 0.0, -1.0 / 6.0, 0.0, 1.0 / 120.0]);
+
+    assert_eq!(sine_poly.eval(0.0), 0.0);
+    assert!((sine_poly.eval(FRAC_PI_2) - 1.).abs() <0.005);
 }
