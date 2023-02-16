@@ -64,7 +64,7 @@ fn main() {
     assert_eq!(older, vec!['η']);
     assert_eq!(younger, vec!['σ']);
 
-    let mut bq = Box::new(Queue::new());
+    let mut bq = Box::new(Queue::<char>::new());
 
     bq.push('ι');
 }
