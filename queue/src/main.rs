@@ -67,4 +67,13 @@ fn main() {
     let mut bq = Box::new(Queue::<char>::new());
 
     bq.push('ι');
+
+    let mut s = Queue::new();
+    let mut f = Queue::new();
+
+    s.push("CAD");
+    f.push(0.74);
+
+    s.push("BTC");
+    f.push(13764.0);
 }
