@@ -1,2 +1,2 @@
 [workspace]
-members = ["actix-gcd", "fern_sim", "hello", "mandelbrot", "quickreplace", "ranges", "reference", "sandbox", "broom", "queue", "extrema", "polynomial"]
+members = ["actix-gcd", "fern_sim", "hello", "mandelbrot", "quickreplace", "ranges", "reference", "sandbox", "broom", "queue", "extrema", "polynomial", "trait_gen"]
